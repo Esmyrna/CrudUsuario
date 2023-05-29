@@ -11,7 +11,7 @@ namespace CrudUsuario.Data
         }
 
         public DbSet<Usuario> Usuarios {get; set;}
-        // Configurando mapeando das entidades do modelo para a tabela do db
+        // Configurando mapeando da entidade do modelo para a tabela do db
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
              var usuario = modelBuilder.Entity<Usuario>();

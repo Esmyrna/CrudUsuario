@@ -6,22 +6,23 @@ namespace CrudUsuario.Repository
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-         // Chamar o context para buscar as infs no db
+        // Chamar o context para buscar as infs no db
         private readonly UsuarioContext _context;
 
         public UsuarioRepository(UsuarioContext context)
         {
             _context = context;
         }
-          public async Task<IEnumerable<Usuario>> BuscaUsuarios()
+
+        public async Task<IEnumerable<Usuario>> BuscaUsuarios()
         {
             return await _context.Usuarios.ToListAsync();
         }
 
-           public async Task<Usuario> BuscaUsuario(int id)
+        public async Task<Usuario> BuscaUsuario(int id)
         {
-           return await _context.Usuarios
-                 .Where(x => x.Id == id).FirstOrDefaultAsync();
+            return await _context.Usuarios
+                  .Where(x => x.Id == id).FirstOrDefaultAsync();
         }
 
         public void AdicionaUsuario(Usuario usuario)
@@ -36,7 +37,7 @@ namespace CrudUsuario.Repository
 
         public async void DeletarUsuario(Usuario usuario)
         {
-           _context.Remove(usuario);
+            _context.Remove(usuario);
         }
 
         public async Task<bool> SaveChangesAysnc()

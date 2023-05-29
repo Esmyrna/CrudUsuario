@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 // Injeção de dependência do banco 
 builder.Services.AddDbContext<UsuarioContext>(options => {
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
